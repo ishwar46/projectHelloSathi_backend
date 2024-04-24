@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Sathi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Font Awesome CSS -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .chat-container {
+        max-width: 700px;
+        max-height: 500px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .chat-header {
+        background-color: #ff6b6b;
+        color: #ffffff;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 2px solid #ff4d4d;
+      }
+
+      .chat-subtitle {
+        text-align: center;
+        font-style: italic;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .chat-messages {
+        padding: 15px;
+        overflow-y: auto;
+        max-height: 300px;
+      }
+
+      .message {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .message.user .content {
+        background-color: #ffe3e3;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 10px;
+      }
+
+      .message.ai .content {
+        background-color: #ccf0fc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+      .message .user-icon,
+      .message .ai-icon {
+        font-size: 20px;
+        margin-top: 5px;
+        margin-right: 5px;
+      }
+
+      .message .user .content,
+      .message .ai .content {
+        max-width: 70%;
+      }
+
+      .input-container {
+        background-color: #ffe3e3;
+        padding: 15px;
+        border-top: 2px solid #ffb3b3;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-container input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ffb3b3;
+        border-radius: 5px;
+      }
+
+      .input-container button {
+        width: auto;
+        height: 50px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #ff6b6b;
+        color: #ffffff;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      .input-container button:hover {
+        background-color: #ff4d4d;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">Hello Sathi</div>
+      <br />
+      <div class="chat-subtitle">
+        I am your AI assistant. You can ask me anything!
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+
+    <script>
+      const chatMessages = document.getElementById("chat-messages");
+      const userInput = document.getElementById("user-input");
+      const sendBtn = document.getElementById("send-btn");
+
+      function sendMessage() {
+        const message = userInput.value.trim();
+        if (message !== "") {
+          appendMessage("user", message);
+          simulateAIResponse(message);
+          userInput.value = "";
+        }
+      }
+
+      function simulateAIResponse(userMessage) {
+        let aiResponse = "";
+
+        if (userMessage.toLowerCase() === "hey") {
+          aiResponse = "Hey, how are you?";
+        } else if (userMessage.toLowerCase() === "goodnight") {
+          aiResponse = "Goodnight! Sweet Dreams!";
+        } else {
+          aiResponse = "I'm just a demo AI. I'm under construction";
+        }
+
+        setTimeout(() => {
+          appendMessage("ai", aiResponse);
+        }, 500);
+      }
+
+      function appendMessage(sender, content) {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message", sender);
+        const icon =
+          sender === "user"
+            ? '<i class="fas fa-user user-icon"></i>'
+            : '<i class="fas fa-robot ai-icon"></i>';
+        messageElement.innerHTML = `
+                ${icon}
+                <div class="content">${content}</div>
+            `;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      sendBtn.addEventListener("click", sendMessage);
+      userInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      });
+    </script>
+  </body>
+</html>
