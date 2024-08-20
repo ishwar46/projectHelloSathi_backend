@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@google-cloud/vision": "^4.3.0",
+    "@tensorflow/tfjs": "^4.20.0",
+    "@tensorflow/tfjs-node": "^4.20.0",
+    "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "canvas": "^2.11.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fontkit": "^2.0.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mammoth": "^1.8.0",
+    "multer": "^1.4.5-lts.1",
+    "natural": "^7.1.0",
+    "nltk": "^0.0.1",
+    "openai": "^4.53.2",
+    "path": "^0.12.7",
+    "python-shell": "^5.0.0",
+    "sharp": "^0.33.4",
+    "stemmer": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "chai-http": "^5.0.0",
+    "mocha": "^10.7.0"
+  }
+}
