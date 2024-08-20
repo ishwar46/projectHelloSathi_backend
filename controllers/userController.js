@@ -31,7 +31,9 @@ const register = async (req, res) => {
       lastName: lastName,
       email: email,
       password: encryptedPassword,
+      username: email.split('@')[0] + Math.floor(Math.random() * 10000), // Example unique username
     });
+    
 
     await newUser.save();
     res.status(201).json({

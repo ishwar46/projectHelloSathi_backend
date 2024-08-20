@@ -5,13 +5,13 @@ const readline = require('readline');
 const { getResponse, loadModel } = require('./getResponse');
 const connectDB = require('./database/database');
 const dotenv = require('dotenv');
-const Chat = require('./models/chatModel');  // Correct path to your model
+const Chat = require('./models/chatModel'); 
 
 const app = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: true,
   credentials: true,
   optionSuccessStatus: 200
 };

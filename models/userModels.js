@@ -12,7 +12,11 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // Ensure email uniqueness in the database
+    unique: true,
+  },
+  username: { 
+    type: String,
+    unique: true,
   },
   password: {
     type: String,
@@ -23,5 +27,7 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
 });
+
+
 
 module.exports = mongoose.model('User', userSchema);

@@ -7,7 +7,7 @@ const axios = require('axios');
 
 // Google Cloud Vision client
 const client = new vision.ImageAnnotatorClient({
-    keyFilename: '/Users/snehaaadhikari/Downloads/pc-api-5087439032110048837-201-2a1ea36d4c25.json'
+    keyFilename: '/Users/nirajansubedi/Downloads/pc-api-5087439032110048837-201-2a1ea36d4c25.json'
 });
 
 
